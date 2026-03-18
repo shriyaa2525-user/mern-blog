@@ -8,7 +8,11 @@ const postRoutes = require("./routes/postRoutes");
 
 const authRoutes = require("./routes/authRoutes");
 
+const path = require("path");
+
 const app = express();
+
+const uploadsPath = path.join(__dirname, "uploads");
 
 connectDB();
 
@@ -17,6 +21,7 @@ app.use(express.json());
 
 app.use("/api/posts", postRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/uploads", express.static(uploadsPath));
 
 app.get("/", (req, res) => {
   res.send("Backend is alive");
