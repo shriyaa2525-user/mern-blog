@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #593D4A;    /* Deep Plum */
+  --secondary: #745155;  /* Muted Chocolate */
+  --accent: #DBAA8C;     /* Soft Tan */
+  --muted-olive: #9E937A; /* Dusty Olive */
+  --bg-gradient: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  --glass: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(89, 61, 74, 0.1);
+  --text-main: #2d2424;
+  --text-muted: #745155;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Outfit', sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/30 shadow-xl rounded-2xl;
+  }
+  
+  .glass-nav {
+    @apply sticky top-0 z-50 bg-white/60 backdrop-blur-lg border-b border-white/20 transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply px-6 py-2 bg-[#5D3E4F] hover:bg-[#4a313f] text-white rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-2 bg-[#DBAA8C]/20 hover:bg-[#DBAA8C]/30 text-[#5D3E4F] border border-[#DBAA8C]/30 rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-[#9E937A]/20 bg-white/50 focus:bg-white focus:ring-2 focus:ring-[#5D3E4F] focus:border-transparent outline-none transition-all duration-200;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(93, 62, 79, 0.2);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
